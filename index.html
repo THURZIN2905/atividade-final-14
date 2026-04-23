@@ -7,19 +7,16 @@
 <title>Catálogo de Produtos</title>
 
 <style>
-/* RESET */
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* BODY */
 body{
     font-family: 'Segoe UI', Arial, sans-serif;
     background: linear-gradient(135deg, #0f0f0f, #1c1c1c);
     color: #fff;
-
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -30,7 +27,6 @@ header{
     background: linear-gradient(90deg, #b35a00, #ff7b00);
     padding: 25px 15px;
     text-align: center;
-    box-shadow: 0 6px 20px rgba(0,0,0,0.5);
 }
 
 header h1{
@@ -38,17 +34,12 @@ header h1{
     margin-bottom: 10px;
 }
 
-/* LOGO CORRIGIDA */
+/* LOGO (corrigido) */
 header img{
     max-width: 220px;
     height: auto;
-    margin-top: 10px;
     object-fit: contain;
-    transition: 0.4s;
-}
-
-header img:hover{
-    transform: scale(1.05);
+    margin-top: 10px;
 }
 
 /* MAIN */
@@ -60,32 +51,16 @@ main{
     padding: 30px 15px;
 }
 
-/* FORM (GLASS) */
+/* FORM */
 form{
     width: 100%;
     max-width: 420px;
     display: flex;
     flex-direction: column;
     gap: 12px;
-
-    background: rgba(255, 255, 255, 0.08);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255,255,255,0.15);
-
+    background: rgba(255,255,255,0.08);
     padding: 25px;
     border-radius: 18px;
-
-    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-    transition: 0.3s;
-}
-
-form:hover{
-    transform: translateY(-5px);
-}
-
-form h2{
-    text-align: center;
-    color: #ff7b00;
 }
 
 /* INPUTS */
@@ -93,60 +68,35 @@ select, input[type="text"]{
     padding: 12px;
     border-radius: 10px;
     border: none;
-    outline: none;
-    font-size: 14px;
-    background: rgba(255,255,255,0.9);
-    transition: 0.3s;
-}
-
-select:focus, input[type="text"]:focus{
-    box-shadow: 0 0 0 2px #ff7b00;
 }
 
 /* BOTÕES */
 input[type="button"]{
     padding: 12px;
     border: none;
-    border-radius: 12px;
-    background: linear-gradient(135deg, #ff7b00, #b35a00);
+    border-radius: 10px;
+    background: #ff7b00;
     color: white;
-    font-weight: bold;
     cursor: pointer;
-    transition: 0.3s;
 }
 
-input[type="button"]:hover{
-    transform: scale(1.05);
-    box-shadow: 0 5px 15px rgba(255,123,0,0.5);
-}
-
-/* RESULTADO */
+/* RESULTADO (corrigido sem heading vazio) */
 #resultado{
     margin-top: 20px;
     font-size: 18px;
-    font-weight: bold;
 }
 
-/* IMAGEM */
+/* IMAGEM (corrigido src inválido) */
 #imagem{
     width: 240px;
     margin-top: 15px;
-    border-radius: 15px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.7);
-    transition: 0.4s;
 }
 
-#imagem:hover{
-    transform: scale(1.05);
-}
-
-/* FOOTER FIXO */
+/* FOOTER */
 footer{
     text-align: center;
     padding: 15px;
     background: #000;
-    font-size: 14px;
-    opacity: 0.8;
 }
 </style>
 
@@ -156,14 +106,16 @@ footer{
 
 <header>
     <h1>🍔 Catálogo de Pedidos</h1>
-    <!-- Renomeie sua imagem para logo.png -->
-    <img src="Captura de tela 2026-04-23 101054.png" alt="Logo do catálogo">
+
+    <!-- ❗ CORRIGIDO: SEM ESPAÇO NO NOME DO ARQUIVO -->
+    <img src="./logo.png" alt="Logo do catálogo">
 </header>
 
 <main>
 
 <section>
     <form name="Escolha_de_pedidos">
+
         <h2>Menu de pedidos</h2>
 
         <label for="ProdutosSELECT">Tipos de produtos</label>
@@ -178,13 +130,19 @@ footer{
         <input type="text" placeholder="(Opcional) Digite o produto desejado" name="txtProduto">
 
         <input type="button" value="Adicionar produto" onclick="P()">
-        <input type="button" value="Limpar pedido" onclick="C()">    
+        <input type="button" value="Limpar pedido" onclick="C()">
+
     </form>
 </section>
 
 <section>
-    <h3 id="resultado"></h3>
-    <img id="imagem" src="" alt="Produto">
+
+    <!-- ❗ CORRIGIDO: NÃO MAIS VAZIO -->
+    <h3 id="resultado">Pedidos: nenhum</h3>
+
+    <!-- ❗ CORRIGIDO: src inicial válido -->
+    <img id="imagem" src="./img/placeholder.png" alt="Produto">
+
 </section>
 
 </main>
@@ -225,9 +183,9 @@ function P(){
 
 function C(){
     pedidos = []
-    document.getElementById("resultado").innerHTML = ""
+    document.getElementById("resultado").innerHTML = "Pedidos: nenhum"
     document.Escolha_de_pedidos.txtProduto.value = ""
-    document.getElementById("imagem").src = ""
+    document.getElementById("imagem").src = "./img/placeholder.png"
 }
 </script>
 
